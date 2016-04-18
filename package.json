@@ -1,0 +1,26 @@
+{
+  "name": "memo",
+  "version": "0.0.0",
+  "description": "Bot to deliver messages in postversion scripts on node apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giovanebribeiro/memo.git"
+  },
+  "keywords": [
+    "bot",
+    "memo",
+    "SCM",
+    "version",
+    "release"
+  ],
+  "author": "Giovane Boaviagem Ribeiro <giovanebribeiro@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giovanebribeiro/memo/issues"
+  },
+  "homepage": "https://github.com/giovanebribeiro/memo#readme"
+}
