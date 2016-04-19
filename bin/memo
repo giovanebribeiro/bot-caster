@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = "memo";
+
+var path = require('path');
+var debug = require('debug')("memo:bin");
+var basedir = process.cwd();
+
+var configFile;
+if(process.argv.length === 2){
+  /* 
+   * if no config file is provided, 
+   * use the package.json
+   */
+  configFile = path.join(basedir, 'package.json');
+}else{
+  configFile = process.argv[2];
+}
+
+require('../cli.js')(configFile);

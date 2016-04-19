@@ -1,0 +1,17 @@
+// This is an example config file to make your tests.
+// 1 - Make a copy of this file an rename it to testConfigs.js, 
+// 2 - Change the infos related to slack and e-mail and run the tests!
+module.exports = {
+  "memo":{
+    "messages":[
+      {"key1": "this is message 1"},
+      {"key1": "this is message 1"},
+      {"key1": "this is message 1"}
+    ],
+    "slack": {
+      "webhookUri":"access this link: https://my.slack.com/services/new/incoming-webhook to obtain your slack bot url",
+      "channel": "#general",
+      "username": "memo"
+    }
+  }
+};

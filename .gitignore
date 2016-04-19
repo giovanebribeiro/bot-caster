@@ -31,3 +31,13 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# vim temp files
+*.swp
+*.swo
+
+# Mac temp file
+.DS_Store
+
+# test file
+test/testConfigs.js
