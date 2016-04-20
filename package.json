@@ -4,7 +4,7 @@
   "description": "Bot to deliver messages in postversion scripts on node apps",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jshint lib test && mocha"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "conventional-changelog-cli": "^1.1.1",
+    "jshint": "^2.9.2",
     "mocha": "^2.4.5"
   }
 }
