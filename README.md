@@ -1,4 +1,4 @@
-# memo [![Dependencies Status](https://david-dm.org/giovanebribeiro/memo.svg)](https://david-dm.org/giovanebribeiro/memo)
+# bot-caster [![Dependencies Status](https://david-dm.org/giovanebribeiro/memo.svg)](https://david-dm.org/giovanebribeiro/memo)
 
 Bot to deliver messages in postversion scripts on node apps.
 
@@ -11,18 +11,18 @@ is generated. So, the normal steps to use this tool are:
 - generate/update changelog
 - commit changed files
 - git push && git push --tags
-- memo
+- bot-caster
 
 ## Installation and usage
 
 ```
-$ npm install --save-dev memo
+$ npm install --save-dev bot-caster
 ```
 
 Or, globally:
 
 ```
-# npm install -g memo
+# npm install -g bot-caster
 ```
 
 Example:
@@ -33,7 +33,7 @@ Example:
 
 "scripts":{
   ...
-  "postversion": "git push && git push --tags && memo -m 'key1'"
+  "postversion": "git push && git push --tags && bot-caster -m 'key1'"
 },
 
 ...

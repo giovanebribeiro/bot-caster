@@ -1,5 +1,5 @@
 {
-  "name": "memo",
+  "name": "bot-caster",
   "version": "0.0.1",
   "description": "Bot to deliver messages in postversion scripts on node apps",
   "bin": {
