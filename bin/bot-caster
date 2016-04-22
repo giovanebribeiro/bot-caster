@@ -28,7 +28,7 @@ function showHelp(){
   console.log("Options:");
   console.log("-h, --help ___________________ Shows this help");
   console.log("-v, --version ________________ Shows the tool version");
-  console.log("-m, --msg 'message_key' ______ Set the message key so be sent. The messages are stored on 'memo' object. See README.md file on project site for more details.");
+  console.log("-m, --msg 'message_key' ______ Set the message key so be sent. The messages are stored on 'bot-caster' object. See README.md file on project site for more details.");
   console.log("");
 }
 

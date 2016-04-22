@@ -66,14 +66,14 @@ Example:
 
 ## Options
 
-The memo options goes inside the package.json file. There's two ways to write the options:
+The bot-caster options goes inside the package.json file. There's two ways to write the options:
 
 - Direct way, inside package.json
 - Indirect way, writing the file path of configs and put your path indide package.json.
 
 ### Writing the direct way
 
-Just add the object inside the 'memo' property on your package.json. The first example of usage for this tool shows the direct way. 
+Just add the object inside the 'bot-caster' property on your package.json. The first example of usage for this tool shows the direct way. 
 
 ```
 package.json
@@ -82,7 +82,7 @@ package.json
   "name": "my-package",
   "version": "1.0.0",
   ...
-  "memo": {
+  "bot-caster": {
     options: {
       ...
     },
@@ -97,9 +97,9 @@ package.json
 Just write your configs in another file, and put this file on package.json.
 
 ```
-/* memo-configs.js */
+/* bot-caster-configs.js */
 module.exports = {
-  "memo":{
+  "bot-caster":{
     "options": {
       "key1": {
         "title": "title for message 1",
@@ -111,7 +111,7 @@ module.exports = {
     "slack": {
       "webhookUri":"access this link: https://hooks.slack.com/services/my-bot-url",
       "channel": "#general",
-      "username": "memo"
+      "username": "bot-caster"
     }
   }
 };
@@ -119,7 +119,7 @@ module.exports = {
 /* package.json */
 {
 ...
-"memo": "path/to/memo-configs.js/created/earlier"
+"bot-caster": "path/to/bot-caster-configs.js/created/earlier"
 }
 ```
 

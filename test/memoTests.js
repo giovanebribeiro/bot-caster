@@ -36,7 +36,7 @@
       var configs = require(testFile);
       assert.doesNotThrow(function(){
         try{
-          slackMemo(configs.memo.slack, msgTitle, msgContent, function(err, response){
+          slackMemo(configs["bot-caster"].slack, msgTitle, msgContent, function(err, response){
             if(err) throw err;
             done(); 
           });
@@ -50,7 +50,7 @@
       assert.doesNotThrow(function(){
         try{
           var configs = require(testFile);
-          slackMemo(configs.memo.slack, configs.memo.options.key1.title, configs.memo.options.key1.content, function(err, response){
+          slackMemo(configs["bot-caster"].slack, configs['bot-caster'].options.key1.title, configs["bot-caster"].options.key1.content, function(err, response){
             if(err) throw err;
             done(); 
           });
