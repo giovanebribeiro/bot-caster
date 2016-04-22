@@ -7,16 +7,15 @@
   var memo = require('../lib/index.js');
   var cli = require('../lib/cli.js');
   var debug = require("debug")("memo:memoTests");
+  var fs = require('fs');
 
   describe("memo tests", function(){
     var testFile;
-    var appName;
-    var appVersion;
     before(function(done){
-      testFile = path.join(__dirname,'testConfigs.js');
-      var pkg = require('../package.json');
-      appName = pkg.name;
-      appVersion = pkg.version;
+      testFile = path.join(__dirname,'testConfigs.json');
+
+      // mounting the second file, for tests to indirect configurations
+      var memo = require(testFile).memo;
       done();
     });
 
@@ -62,21 +61,61 @@
 
     });
 
+    describe("cli tests", function(){
+      var fakePackageJson;
+      before(function(done){
+        // create the needed files
+        // file for 'direct way'
+        fakePackageJson = require(testFile);
+        
+        // file for indirect way
+        var jsonIndirectWay = fakePackageJson.memo;
+        fs.writeFile(path.join(__dirname, 'indirectConfigs.json'), JSON.stringify(jsonIndirectWay), function(err){
+          if(err) throw err;
+          done();
+        });
+      });
 
-    it("cli tests", function(done){
-      assert.doesNotThrow(function(){
-        try{
-          cli(testFile, "key1", function(err, response){
-            if(err) throw err;
-            debug(response);
-            done();
-          });  
-        }catch(e){
-          throw e;
-        }
-      }, Error);
+      after(function(done){
+        fs.unlink(path.join(__dirname, 'indirectConfigs.json'), function(err){
+          if(err) throw err;
+          done();
+        });
+      });
+
+      it("direct way", function(done){
+        var configs = require(testFile);
+        assert.doesNotThrow(function(){
+          try{
+            cli(configs, "key1", function(err, response){
+              if(err) throw err;
+              debug(response);
+              done();
+            });  
+          }catch(e){
+            throw e;
+          }
+        }, Error);
+      });
+
+      it("indirect way", function(done){
+        var configs = require(testFile);
+        configs.memo = path.join(__dirname, 'indirectConfigs.json');
+        assert.doesNotThrow(function(){
+          try{
+            cli(configs, "key1", function(err, response){
+              if(err) throw err;
+              debug(response);
+              done();
+            });  
+          }catch(e){
+            throw e;
+          }
+        }, Error);
+
+      });
     });
-
+/*
     it("Send a message using the default message (must be the last one)", function(done){
       var configs = require(testFile);
       //removing the options object to force the use of default message
@@ -93,7 +132,7 @@
         }
       }, Error, "function does not throw any error");
     });
-
+*/  
   });
 
 })();

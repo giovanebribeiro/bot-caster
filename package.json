@@ -1,10 +1,15 @@
 {
   "name": "memo",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Bot to deliver messages in postversion scripts on node apps",
-  "main": "index.js",
+  "bin": {
+    "memo": "bin/memo"
+  },
   "scripts": {
-    "test": "jshint lib test && mocha"
+    "test": "jshint lib test && mocha",
+    "preversion": "npm test",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -o CHANGELOG.md -s && git add --all",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -25,6 +30,7 @@
   "homepage": "https://github.com/giovanebribeiro/memo#readme",
   "dependencies": {
     "debug": "^2.2.0",
+    "nopt": "^3.0.6",
     "slack-node": "^0.2.0"
   },
   "devDependencies": {

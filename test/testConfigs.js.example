@@ -1,17 +1,22 @@
 // This is an example config file to make your tests.
 // 1 - Make a copy of this file an rename it to testConfigs.js, 
 // 2 - Change the infos related to slack and e-mail and run the tests!
-module.exports = {
+{
+  "name": "memoTests",
+  "version": "1.2.3",
   "memo":{
-    "messages":[
-      {"key1": "this is message 1"},
-      {"key1": "this is message 1"},
-      {"key1": "this is message 1"}
-    ],
+    "options": {
+      "key1": {
+        "title": "title for message 1",
+        "content": "this is the content for message 1",
+        "attachChangelog": true
+      }
+    },
+    "changelogFile": "./CHANGELOG.md",
     "slack": {
-      "webhookUri":"access this link: https://my.slack.com/services/new/incoming-webhook to obtain your slack bot url",
+      "webhookUri":"https://hooks.slack.com/services/change/for/a/valid/webhook",
       "channel": "#general",
       "username": "memo"
     }
   }
-};
+}

@@ -7,16 +7,57 @@ process.title = "memo";
 var path = require('path');
 var debug = require('debug')("memo:bin");
 var basedir = process.cwd();
+var nopt = require('nopt');
+var pkg = require('../package.json');
 
-var configFile;
-if(process.argv.length === 2){
-  /* 
-   * if no config file is provided, 
-   * use the package.json
-   */
-  configFile = path.join(basedir, 'package.json');
-}else{
-  configFile = process.argv[2];
+var opts = {
+  "help": Boolean,
+  "version": Boolean,
+  "msg": String
+};
+
+var shortcuts = {
+  "h": ["--help"],
+  "v": ["--version"],
+  "m": ["--msg"],
+};
+
+function showHelp(){
+  console.log("** Usage: memo [options]");
+  console.log("");
+  console.log("Options:");
+  console.log("-h, --help ___________________ Shows this help");
+  console.log("-v, --version ________________ Shows the tool version");
+  console.log("-m, --msg 'message_key' ______ Set the message key so be sent. The messages are stored on 'memo' object. See README.md file on project site for more details.");
+  console.log("");
 }
 
-require('../cli.js')(configFile);
+var parsed = nopt(opts, shortcuts, process.argv, 2);
+
+if(!(parsed.version || parsed.help) && !parsed.msg){
+  console.log("ERROR: Inform the message key");
+  showHelp();
+  process.exit(1);
+}
+
+if(!parsed.msg){
+  if(parsed.version){
+    console.log(pkg.name, '-', pkg.version);
+  }
+
+  if(parsed.help){
+    showHelp();
+  }
+}else{
+  var appPackageJson = require(path.join(basedir, 'package.json'));
+
+  
+  var memo = appPackageJson.memo;
+  var msgKey = parsed.msg;
+  require('../cli.js')(appPackageJson, msgKey, function(err, response){
+    if(err) throw err;
+    if(response){
+      console.log(response);
+    }
+  });
+}
