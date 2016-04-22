@@ -38,7 +38,7 @@ Example:
 
 ...
 
-"memo":{
+"bot-caster":{
   "options": {
     "key1": {
       "title": "title for message 1",

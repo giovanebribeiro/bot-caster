@@ -8,7 +8,7 @@ var path = require('path');
 var debug = require('debug')("memo:bin");
 var basedir = process.cwd();
 var nopt = require('nopt');
-var pkg = require('../package.json');
+var pkg = require(path.join(__dirname,'..','package.json'));
 
 var opts = {
   "help": Boolean,
@@ -23,7 +23,7 @@ var shortcuts = {
 };
 
 function showHelp(){
-  console.log("** Usage: memo [options]");
+  console.log("** Usage: bot-caster [options]");
   console.log("");
   console.log("Options:");
   console.log("-h, --help ___________________ Shows this help");
@@ -50,11 +50,10 @@ if(!parsed.msg){
   }
 }else{
   var appPackageJson = require(path.join(basedir, 'package.json'));
-
   
   var memo = appPackageJson.memo;
   var msgKey = parsed.msg;
-  require('../cli.js')(appPackageJson, msgKey, function(err, response){
+  require('../lib/cli.js')(appPackageJson, msgKey, function(err, response){
     if(err) throw err;
     if(response){
       console.log(response);
