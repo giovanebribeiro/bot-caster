@@ -1,6 +1,6 @@
 {
   "name": "bot-caster",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bot to deliver messages in postversion scripts on node apps",
   "bin": {
     "memo": "bin/memo"
