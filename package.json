@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giovanebribeiro/memo.git"
+    "url": "git+https://github.com/giovanebribeiro/bot-caster.git"
   },
   "keywords": [
     "bot",
@@ -25,9 +25,9 @@
   "author": "Giovane Boaviagem Ribeiro <giovanebribeiro@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/giovanebribeiro/memo/issues"
+    "url": "https://github.com/giovanebribeiro/bot-caster/issues"
   },
-  "homepage": "https://github.com/giovanebribeiro/memo#readme",
+  "homepage": "https://github.com/giovanebribeiro/bot-caster#readme",
   "dependencies": {
     "debug": "^2.2.0",
     "nopt": "^3.0.6",
